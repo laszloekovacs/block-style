@@ -8,6 +8,7 @@ export interface BlockType {
 }
 
 export interface State {
+  active: number
   blocks: BlockType[]
 }
 
@@ -17,7 +18,7 @@ export interface Action {
 }
 
 export function init(): State {
-  return { blocks: [] }
+  return { blocks: [], active: 0 }
 }
 
 export type ActionType = "RESET" | "NEW_BLOCK"

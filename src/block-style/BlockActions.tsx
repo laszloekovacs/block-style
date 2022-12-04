@@ -1,7 +1,12 @@
-import React from "react"
+import React, { KeyboardEventHandler } from "react"
 
-function BlockActions({ children }) {
-  return <div>Action{children}</div>
+function BlockActions() {
+  const keyHandler: KeyboardEventHandler = (ev) => {
+    console.log(ev.key)
+    ev.stopPropagation()
+  }
+
+  return <div onKeyUpCapture={keyHandler}>Actions</div>
 }
 
 export default BlockActions

@@ -1,9 +1,10 @@
-import React, { useContext } from "react"
+import React, { KeyboardEventHandler, useContext } from "react"
 import { BlockType, State } from "./reducer"
 import BlockParagraph from "./BlockParagraph"
 import BlockHeader from "./BlockHeader"
 import { documentContext } from "./BlockDocument"
 import BlockActions from "./BlockActions"
+import grabhandle from "../block-style/img/drag_indicator_FILL0_wght400_GRAD0_opsz48.svg"
 
 function Block({ index }: { index: number }) {
   const doc = useContext(documentContext)
@@ -30,7 +31,8 @@ function Block({ index }: { index: number }) {
 
   return (
     <div onClick={MakeActiveHandler}>
-      <BlockActions>{selectedBlock}</BlockActions>
+      {selectedBlock}
+      <img src={grabhandle} />
     </div>
   )
 }

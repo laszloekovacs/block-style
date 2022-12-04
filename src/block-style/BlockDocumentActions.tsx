@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react"
 import { documentContext } from "./BlockDocument"
 import { Action, State, ActionType } from "./reducer"
 
-function ActionsBar() {
+function BlockDocumentActions() {
   const doc = useContext(documentContext)
 
   const handleReset = useCallback(() => {
@@ -17,15 +17,20 @@ function ActionsBar() {
     console.log(doc.state)
   }, [doc.state])
 
+  const changeBlockTypeHandler = useCallback(() => {
+    console.log("changing type")
+  }, [])
+
   return (
     <div>
       <ul>
         <button onClick={handleReset}>reset</button>
         <button onClick={handleNewBlock}>create new block</button>
         <button onClick={handleDebugPrint}>print document</button>
+        <button onClick={changeBlockTypeHandler}>change Type</button>
       </ul>
     </div>
   )
 }
 
-export default ActionsBar
+export default BlockDocumentActions
